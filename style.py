@@ -261,23 +261,23 @@ class NST:
 def main():
     parser = argparse.ArgumentParser(description='Prisma-like app to apply style for images.')
     parser.add_argument('-lr', action="store", dest="lr", type=float,
-                        default=2.0, help="Learning rate for Adam optimizer")
+                        default=2.0, help="Learning rate for Adam optimizer. Defaulted to 2.0.")
     parser.add_argument('-t', action="store", dest="t",
-                        default="conv4_2", help="Target layer used for comparison")
+                        default="conv4_2", help="Target layer used for comparison. Defaulted to 'conv4_2' of VGG19")
     parser.add_argument('-a', action="store", dest="a", type=int,
-                        default=10, help="Blending parameter alpha")
+                        default=10, help="Blending parameter alpha. Default is 10.")
     parser.add_argument('-b', action="store", dest="b", type=int,
-                        default=40, help="Blending parameter beta")
+                        default=40, help="Blending parameter beta. Default is 20.")
     parser.add_argument('-e', action="store", dest="e", type=int,
-                        default=400, help="Number of epochs to train")
-    parser.add_argument('-m', action="store", dest="m",
-                        default="pretrained/imagenet-vgg-verydeep-19.mat", help="Path to VGG model.")
+                        default=400, help="Number of epochs to train. Default is 400.")
+    parser.add_argument('-m', action="store", dest="m", default="pretrained/imagenet-vgg-verydeep-19.mat",
+                        help="Path to VGG model. Defaulted to model in 'pretrained' directory")
     parser.add_argument('-c', action="store", dest="c",
-                        default="data/original.jpg", help="Path to content image")
+                        default="data/original.jpg", help="Path to content image.")
     parser.add_argument('-s', action="store", dest="s",
-                        default="data/style.jpg", help="Path to style image")
-    parser.add_argument('-g', action="store", dest="g",
-                        default="generated.jpg", help="Name of generated image.")
+                        default="data/style.jpg", help="Path to style image.")
+    parser.add_argument('-g', action="store", dest="g", default="generated.jpg",
+                        help="Name of generated image. Default is 'generated.jpg' in 'outputs' folder.")
     arguments = parser.parse_args()
 
     layer_weights = [
