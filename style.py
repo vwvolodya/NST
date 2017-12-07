@@ -289,7 +289,7 @@ def main():
 
     nst = NST(arguments.m, layer_weights, arguments.t, arguments.a, arguments.b)
     optimizer = tf.train.AdamOptimizer(arguments.lr)
-    nst.transfer(optimizer, arguments.c, arguments.s, "generated.jpg", num_epochs=arguments.e)
+    nst.transfer(optimizer, arguments.c, arguments.s, arguments.g, num_epochs=arguments.e)
 
 
 if __name__ == "__main__":
